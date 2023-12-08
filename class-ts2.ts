@@ -39,13 +39,15 @@ function createComponent(element: string, props: Props, children?: string[]): st
     tagParts.push(...children);
   }
 
-  tagParts.push(`</${element}`); // 태그의 끝 부분을 추가
+  tagParts.push(`</${element}>`); // 태그의 끝 부분을 추가
 
   const result = tagParts.join(''); // 배열의 항목들을 공백으로 연결하여 최종 문자열 생성
   return result; // 최종적으로 만들어진 HTML 태그를 반환
 }
 
 // 사용 예시
-const myComponent = createComponent('div', {id: 'example', style: { color: 'red' }}, ['안녕하세요']);
+const myComponent = createComponent('div', { id: 'example', style: { color: 'red' } }, ['안녕하세요']);
 const root = document.getElementById('root');
-root.innerHTML = myComponent; // 최종적으로 만들어진 HTML 태그를 'root' 요소의 innerHTML로 설정
+if (root) {
+  root.innerHTML = myComponent; // 최종적으로 만들어진 HTML 태그를 'root' 요소의 innerHTML로 설정
+}

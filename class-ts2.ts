@@ -50,4 +50,3 @@ const myComponent = createComponent('div', { id: 'example', style: { color: 'red
 const root = document.getElementById('root');
 if (root) {
   root.innerHTML = myComponent; // 최종적으로 만들어진 HTML 태그를 'root' 요소의 innerHTML로 설정
-}

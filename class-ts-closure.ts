@@ -21,3 +21,12 @@ function MemberDataWithClosure(id: string, password: string,  address: string, c
     return { id, password, address, cart };
   };
 }
+
+// 클로저를 사용하지 않는 객체
+let MemberDataWithoutClosure: MemberData = {
+  id: 'user2',
+  password: 'pass2',
+  address: 'address2',
+  cart: ['item3', 'item4']
+};
+

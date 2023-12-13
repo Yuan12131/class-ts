@@ -41,3 +41,9 @@ let MemberDataWithoutClosure: MemberData = {
 // 클로저를 사용하는 예제
 let Member1WithClosure = MemberDataWithClosure('user1', 'pass1', 'address1', ['item1', 'item2']);
 console.log(Member1WithClosure()); // 클로저를 통한 데이터 접근
+// 위 예제에서는 memberDataWithClosure 함수를 통해 은닉화를 구현했기 때문에, member1WithClosure() 함수를 통해서만 데이터에 접근 가능
+
+// 클로저를 사용하지 않는 예제
+console.log(MemberDataWithoutClosure); // 직접 데이터 접근
+// 그간 개발할 때 매우 자주 사용했지만, 보안상의 문제가 있음
+// 위 예제에서는 직접 데이터에 접근했기 때문에 위험한 방법

@@ -1,3 +1,4 @@
+"use strict";
 // 클로저를 사용하는 함수
 /**
  *
@@ -10,11 +11,11 @@
  */
 function MemberDataWithClosure(id, password, address, cart) {
     return function () {
-        return { id: id, password: password, address: address, cart: cart };
+        return { id, password, address, cart };
     };
 }
 // 클로저를 사용하지 않는 객체
-var MemberDataWithoutClosure = {
+let MemberDataWithoutClosure = {
     id: 'user2',
     password: 'pass2',
     address: 'address2',
@@ -28,7 +29,7 @@ var MemberDataWithoutClosure = {
  * 클로저 패턴, 위 예제에서 meberDataWithClosure 함수를 통해 은닉화 구현
  */
 // 클로저를 사용하는 예제
-var Member1WithClosure = MemberDataWithClosure('user1', 'pass1', 'address1', ['item1', 'item2']);
+let Member1WithClosure = MemberDataWithClosure('user1', 'pass1', 'address1', ['item1', 'item2']);
 console.log(Member1WithClosure()); // 클로저를 통한 데이터 접근
 // 위 예제에서는 memberDataWithClosure 함수를 통해 은닉화를 구현했기 때문에, member1WithClosure() 함수를 통해서만 데이터에 접근 가능
 // 클로저를 사용하지 않는 예제

@@ -36,3 +36,12 @@ export default class App extends React.Component<IAppProps, IAppState> {
     );
   }
 }
+
+/**
+ * tsrc에 추가된 점
+ * 인터페이스 추가: IAppProps와 IAppState라는 두 개의 TypeScript 인터페이스를 추가
+ * -> 이 인터페이스들은 각각 속성(props)과 상태(state)의 타입을 명시
+ * 
+ * 제네릭 활용: React.Component<IAppProps, IAppState>와 같이 App 클래스를 정의할 때 제네릭을 사용하여 IAppProps와 IAppState를 적용
+ * -> App 컴포넌트가 받는 속성(props)과 상태(state)의 타입이 명시적으로 지정
+ */

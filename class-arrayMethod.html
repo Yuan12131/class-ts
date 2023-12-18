@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="pokemon-list"></div>
+  <script>
+    const pokemon = ["피카츄", "라이츄", "파이리", "꼬부기"];
+    const updatedPokemon = pokemon.map((pokemon) => {
+      if (pokemon === "파이리") {
+        return "버터풀";
+      }
+      return pokemon;
+    });
+
+    const pokemonListContainer = document.getElementById('pokemon-list');
+    updatedPokemon.forEach((pokemon) => {
+      const pokemonElement = document.createElement('div')
+      pokemonElement.innerHTML = `<p>${pokemon}</p>`;
+      pokemonListContainer.appendChild(pokemonElement);
+    });
+  </script>
+</body>
+
+</html>

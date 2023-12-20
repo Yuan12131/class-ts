@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 사용자 정의 속성
+  data-로 시작되는 속성은 사용자 정의 속성으로 마치 클래스처럼 사용할 수 있음
+사용자 정의 속성은 dataset 프로퍼티를 사용하여 접근할 수 있음
+dataset 프로퍼티는 DOMStringMap 객체를 반환
+객체이므로, 평범한 객체처럼 점 표기법과 대괄호 표기법을 사용하여 접근할 수 있음
+마치 HTmL tag에 객체를 저장하는 것과 비슷 -->
+<div id="pokeomon1" data-name="Pikachu" data-type="Electric">피카츄</div>
+<div id="pokemon2" data-name="Charmander" data-type="Fire">파이리</div>
+<div id="pokemon3" data-name="Squirtle" data-type="Water">꼬부기</div>
+
+<script>
+  function saveDataTag(element){
+    // element 매개변수의 값을 그대로 사용할 수 있지만,
+    // 리액트의 함수형 컴포넌트는 클로저를 사용하여 값을 저장
+    // 변수 name과 type은 클로저 내부에서만 사용할 수 있으며, 일종의 지역변수
+    // 객체지향 프로그래밍에서 은닉화(데이터를 보호하는 것)과 비슷한 개념
+    const name = element.dataset.name;
+    const type = element.dataset.type;
+    console.log(name);
+    // 클로저 내부의 데이터를 사용하여 문장을 반환하는 함수
+    return function(){
+      return `${name} is a ${type} type Pokemon`;
+    };
+  }
+  // 변수 name과 type은 함수 바깥에서 제어할 수 없지만,
+  // 클로저를 반환하는 saveDattaTag 함수를 실행하면서 접근은 가능
+
+  // 모든 div 요소를 선택
+  // querySelectorAll 메소드는 NodeList를 반환
+  const divArray = Array.from(document.querySelectorAll("div"));
+  // Array.from 메소드는 유사 배열 객체나 반복가능한 객체를 얕게 복사하여 새로운 배열을 만듦
+  // 본 예제에서는 forEach메소드를 사용하기 위해 배열로 반환
+
+  // 각 div요소에 대해 반복하면서 saveDataTag함수를 사용
+  divArray.forEach((div) => {
+    const getPokemonInfo = saveDataTag(div);
+    div.textContent = getPokemonInfo();
+  });
+</script>
+</body>
+</html>
